@@ -28,7 +28,7 @@ YNBluetooth, a library of app. Common classes.Here should be a long long descrip
   s.source           = { :git => 'https://github.com/yinanwang1/YNBluetooth.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '7.0'
 
   s.source_files = 'YNBluetooth/Classes/**/*.{h,m}'
   
