@@ -96,30 +96,63 @@
     
     //发送通知
     [[NSNotificationCenter defaultCenter]postNotificationName:BabyNotificationAtCentralManagerDidUpdateState object:@{@"central":central}];
-    
-    switch (central.state) {
-        case CBCentralManagerStateUnknown:
-            BabyLog(@">>>CBCentralManagerStateUnknown");
-            break;
-        case CBCentralManagerStateResetting:
-            BabyLog(@">>>CBCentralManagerStateResetting");
-            break;
-        case CBCentralManagerStateUnsupported:
-            BabyLog(@">>>CBCentralManagerStateUnsupported");
-            break;
-        case CBCentralManagerStateUnauthorized:
-            BabyLog(@">>>CBCentralManagerStateUnauthorized");
-            break;
-        case CBCentralManagerStatePoweredOff:
-            BabyLog(@">>>CBCentralManagerStatePoweredOff");
-            break;
-        case CBCentralManagerStatePoweredOn:
-            BabyLog(@">>>CBCentralManagerStatePoweredOn");
-            [[NSNotificationCenter defaultCenter]postNotificationName:BabyNotificationAtCentralManagerEnable object:@{@"central":central}];
-            break;
-        default:
-            break;
+
+    if (@available(iOS 10.0, *)) {
+        switch (central.state) {
+            case CBManagerStateUnknown:
+                BabyLog(@">>>CBManagerStateUnknown");
+                break;
+
+            case CBManagerStateResetting:
+                BabyLog(@">>>CBManagerStateResetting");
+                break;
+
+            case CBManagerStateUnsupported:
+                BabyLog(@">>>CBManagerStateUnsupported");
+                break;
+
+            case CBManagerStateUnauthorized:
+                BabyLog(@">>>CBManagerStateUnauthorized");
+                break;
+
+            case CBManagerStatePoweredOff:
+                BabyLog(@">>>CBManagerStatePoweredOff");
+                break;
+
+            case CBManagerStatePoweredOn:
+                BabyLog(@">>>CBManagerStatePoweredOn");
+                [[NSNotificationCenter defaultCenter]postNotificationName:BabyNotificationAtCentralManagerEnable object:@{@"central":central}];
+                break;
+
+            default:
+                break;
+        }
+    } else {
+        switch (central.state) {
+            case CBCentralManagerStateUnknown:
+                BabyLog(@">>>CBCentralManagerStateUnknown");
+                break;
+            case CBCentralManagerStateResetting:
+                BabyLog(@">>>CBCentralManagerStateResetting");
+                break;
+            case CBCentralManagerStateUnsupported:
+                BabyLog(@">>>CBCentralManagerStateUnsupported");
+                break;
+            case CBCentralManagerStateUnauthorized:
+                BabyLog(@">>>CBCentralManagerStateUnauthorized");
+                break;
+            case CBCentralManagerStatePoweredOff:
+                BabyLog(@">>>CBCentralManagerStatePoweredOff");
+                break;
+            case CBCentralManagerStatePoweredOn:
+                BabyLog(@">>>CBCentralManagerStatePoweredOn");
+                [[NSNotificationCenter defaultCenter]postNotificationName:BabyNotificationAtCentralManagerEnable object:@{@"central":central}];
+                break;
+            default:
+                break;
+        }
     }
+
     //状态改变callback
     if ([currChannel blockOnCentralManagerDidUpdateState]) {
         [currChannel blockOnCentralManagerDidUpdateState](central);

@@ -384,7 +384,18 @@
 
 //私有方法，扫描或连接设备
 - (void)start:(CBPeripheral *)cachedPeripheral {
-    if (self.babyCentralManager->centralManager.state == CBCentralManagerStatePoweredOn) {
+    BOOL poweredOn = NO;
+    if (@available(iOS 10.0, *)) {
+        if (self.babyCentralManager->centralManager.state == CBManagerStatePoweredOn) {
+            poweredOn = YES;
+        }
+    } else {
+        if (self.babyCentralManager->centralManager.state == CBCentralManagerStatePoweredOn) {
+            poweredOn = YES;
+        }
+    }
+
+    if (poweredOn) {
         self.CENTRAL_MANAGER_INIT_WAIT_TIMES = 0;
         //扫描后连接
         if (self.babyCentralManager->needScanForPeripherals) {
