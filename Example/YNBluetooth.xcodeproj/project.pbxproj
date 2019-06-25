@@ -22,6 +22,7 @@
 		C648B8D222C2155D00B0EF7A /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = C648B8C722C2155D00B0EF7A /* BabyRhythm.m */; };
 		C648B8D322C2155D00B0EF7A /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = C648B8C922C2155D00B0EF7A /* BabyBluetooth.m */; };
 		C648B8D422C2155D00B0EF7A /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = C648B8CA22C2155D00B0EF7A /* BabyDefine.m */; };
+		C648B8D622C2409E00B0EF7A /* YNBluetooth.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C648B8D522C2409E00B0EF7A /* YNBluetooth.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		C648B8C922C2155D00B0EF7A /* BabyBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBluetooth.m; sourceTree = "<group>"; };
 		C648B8CA22C2155D00B0EF7A /* BabyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDefine.m; sourceTree = "<group>"; };
 		C648B8CB22C2155D00B0EF7A /* BabyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCallback.h; sourceTree = "<group>"; };
+		C648B8D522C2409E00B0EF7A /* YNBluetooth.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YNBluetooth.podspec; path = ../../YNBluetooth.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		C648B88422C211B900B0EF7A /* YNBluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				C648B8D522C2409E00B0EF7A /* YNBluetooth.podspec */,
 				C648B8B922C2155D00B0EF7A /* Classes */,
 				C648B88522C211B900B0EF7A /* AppDelegate.h */,
 				C648B88622C211B900B0EF7A /* AppDelegate.m */,
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C648B8D622C2409E00B0EF7A /* YNBluetooth.podspec in Resources */,
 				C648B89222C211BB00B0EF7A /* LaunchScreen.storyboard in Resources */,
 				C648B88F22C211BB00B0EF7A /* Assets.xcassets in Resources */,
 				C648B88D22C211B900B0EF7A /* Main.storyboard in Resources */,

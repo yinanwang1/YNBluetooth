@@ -31,10 +31,6 @@ YNBluetooth, a library of app. Common classes.Here should be a long long descrip
   s.ios.deployment_target = '7.0'
 
   s.source_files = 'YNBluetooth/Classes/**/*.{h,m}'
-  
-  s.resource_bundles = {
-    'YNBluetooth' => ['YNBluetooth/Assets/**/*', 'YNBluetooth/Classes/**/*.{xib,storyboard, lproj}']
-  }
 
   s.public_header_files = 'YNBluetooth/Classes/**/*.h'
   s.frameworks = 'UIKit'
