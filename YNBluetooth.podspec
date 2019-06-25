@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint HXAppPod.podspec' to ensure this is a
+# Be sure to run `pod lib lint YNBluetooth.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'HXAppPod'
-  s.version          = '1.1.0'
-  s.summary          = 'HXAppPod, a library of app. Common classes.'
+  s.name             = 'YNBluetooth'
+  s.version          = '1.0.0'
+  s.summary          = 'YNBluetooth, a library of app. Common classes.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,35 +18,28 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-HXAppPod, a library of app. Common classes.Here should be a long long description.
+YNBluetooth, a library of app. Common classes.Here should be a long long description.
                        DESC
 
-  s.homepage         = 'http://code.59store.com/ios/HXAppPod'
+  s.homepage         = 'https://github.com/yinanwang1/YNBluetooth'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Chen Si' => 'chsasaw@gmail.com' }
-  s.source           = { :git => 'git@code.59store.com:ios/HXAppPod.git', :tag => s.version.to_s }
+  s.author           = { 'Arthur' => 'wangyinan1986@sina.com' }
+  s.source           = { :git => 'https://github.com/yinanwang1/YNBluetooth.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '9.0'
 
-  s.source_files = 'HXAppPod/Classes/**/*.{h,m}'
+  s.source_files = 'YNBluetooth/Classes/**/*.{h,m}'
   
   s.resource_bundles = {
-    'HXAppPod' => ['HXAppPod/Assets/**/*', 'HXAppPod/Classes/**/*.{xib,storyboard, lproj}']
+    'YNBluetooth' => ['YNBluetooth/Assets/**/*', 'YNBluetooth/Classes/**/*.{xib,storyboard, lproj}']
   }
 
-  s.public_header_files = 'HXAppPod/Classes/**/*.h'
+  s.public_header_files = 'YNBluetooth/Classes/**/*.h'
   s.frameworks = 'UIKit'
 
   s.requires_arc = true
-
-  s.subspec 'OpenUDID' do |ss|
-    ss.source_files = 'HXAppPod/Classes/OpenUDID/*.{h,m}'
-    ss.public_header_files = 'HXAppPod/Classes/OpenUDID/*.h'
-
-    ss.requires_arc = false
-  end
  
 
 end
