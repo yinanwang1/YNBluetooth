@@ -105,24 +105,24 @@
 		C648B8B922C2155D00B0EF7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C648B8BA22C2155D00B0EF7A /* BabyRhythm.h */,
-				C648B8BB22C2155D00B0EF7A /* BabySpeaker.h */,
-				C648B8BC22C2155D00B0EF7A /* BabyToy.m */,
-				C648B8BD22C2155D00B0EF7A /* BabyCentralManager.h */,
-				C648B8BE22C2155D00B0EF7A /* BabyPeripheralManager.h */,
-				C648B8BF22C2155D00B0EF7A /* BabyDefine.h */,
 				C648B8C022C2155D00B0EF7A /* BabyBluetooth.h */,
-				C648B8C122C2155D00B0EF7A /* BabyOptions.m */,
-				C648B8C222C2155D00B0EF7A /* BabyCallback.m */,
-				C648B8C322C2155D00B0EF7A /* BabyPeripheralManager.m */,
-				C648B8C422C2155D00B0EF7A /* BabyCentralManager.m */,
+				C648B8C922C2155D00B0EF7A /* BabyBluetooth.m */,
+				C648B8BA22C2155D00B0EF7A /* BabyRhythm.h */,
+				C648B8C722C2155D00B0EF7A /* BabyRhythm.m */,
+				C648B8BB22C2155D00B0EF7A /* BabySpeaker.h */,
 				C648B8C522C2155D00B0EF7A /* BabySpeaker.m */,
 				C648B8C622C2155D00B0EF7A /* BabyToy.h */,
-				C648B8C722C2155D00B0EF7A /* BabyRhythm.m */,
-				C648B8C822C2155D00B0EF7A /* BabyOptions.h */,
-				C648B8C922C2155D00B0EF7A /* BabyBluetooth.m */,
+				C648B8BC22C2155D00B0EF7A /* BabyToy.m */,
+				C648B8BD22C2155D00B0EF7A /* BabyCentralManager.h */,
+				C648B8C422C2155D00B0EF7A /* BabyCentralManager.m */,
+				C648B8BE22C2155D00B0EF7A /* BabyPeripheralManager.h */,
+				C648B8C322C2155D00B0EF7A /* BabyPeripheralManager.m */,
+				C648B8BF22C2155D00B0EF7A /* BabyDefine.h */,
 				C648B8CA22C2155D00B0EF7A /* BabyDefine.m */,
+				C648B8C822C2155D00B0EF7A /* BabyOptions.h */,
+				C648B8C122C2155D00B0EF7A /* BabyOptions.m */,
 				C648B8CB22C2155D00B0EF7A /* BabyCallback.h */,
+				C648B8C222C2155D00B0EF7A /* BabyCallback.m */,
 			);
 			name = Classes;
 			path = ../../YNBluetooth/Classes;

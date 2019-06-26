@@ -184,7 +184,7 @@
     
     //处理连接设备
     if (needConnectPeripheral) {
-        if ([currChannel filterOnconnectToPeripherals](peripheral.name,advertisementData,RSSI)) {
+        if ([currChannel filterOnconnectToPeripherals](peripheral.name, advertisementData, RSSI, peripheral.identifier.UUIDString)) {
             [centralManager connectPeripheral:peripheral options:[currChannel babyOptions].connectPeripheralWithOptions];
             //开一个定时器监控连接超时的情况
             connectTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(disconnect:) userInfo:peripheral repeats:NO];
