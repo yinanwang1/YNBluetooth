@@ -29,6 +29,7 @@ YNBluetooth, a library of app. Common classes.Here should be a long long descrip
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '7.0'
+  s.macos.deployment_target = '10.10'
 
   s.source_files = 'YNBluetooth/Classes/**/*.{h,m}'
 
