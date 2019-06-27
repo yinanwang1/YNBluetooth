@@ -107,7 +107,7 @@ characteristic订阅状态改变的block
 读取RSSI的委托
 |  when did read RSSI 
 */
-- (void)setBlockOnDidReadRSSI:(void (^)(NSNumber *RSSI,NSError *error))block;
+- (void)setBlockOnDidReadRSSI:(void (^)(CBPeripheral *peripheral, NSNumber *RSSI,NSError *error))block;
 
 /**
 discoverIncludedServices的回调，暂时在babybluetooth中无作用
@@ -231,7 +231,7 @@ characteristic订阅状态改变的block
 |  when did read RSSI 
 */
 - (void)setBlockOnDidReadRSSIAtChannel:(NSString *)channel
-                                block:(void (^)(NSNumber *RSSI,NSError *error))block;
+                                block:(void (^)(CBPeripheral *peripheral, NSNumber *RSSI,NSError *error))block;
 
 /**
 discoverIncludedServices的回调，暂时在babybluetooth中无作用

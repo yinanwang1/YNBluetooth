@@ -435,7 +435,7 @@
     
     BabyLog(@">>>peripheralDidUpdateRSSI -> RSSI:%@",peripheral.RSSI);
     if ([currChannel blockOnDidReadRSSI]) {
-        [currChannel blockOnDidReadRSSI](peripheral.RSSI,error);
+        [currChannel blockOnDidReadRSSI](peripheral, peripheral.RSSI, error);
     }
 }
 #else
@@ -444,7 +444,7 @@
     
     BabyLog(@">>>peripheralDidUpdateRSSI -> RSSI:%@",RSSI);
     if ([currChannel blockOnDidReadRSSI]) {
-        [currChannel blockOnDidReadRSSI](RSSI,error);
+        [currChannel blockOnDidReadRSSI](peripheral, RSSI, error);
     }
 }
 #endif

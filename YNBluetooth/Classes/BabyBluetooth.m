@@ -105,7 +105,7 @@
     [[self.babySpeaker callback]setBlockOnDidUpdateNotificationStateForCharacteristic:block];
 }
 //读取RSSI的委托
-- (void)setBlockOnDidReadRSSI:(void (^)(NSNumber *RSSI,NSError *error))block {
+- (void)setBlockOnDidReadRSSI:(void (^)(CBPeripheral *peripheral, NSNumber *RSSI,NSError *error))block {
     [[self.babySpeaker callback]setBlockOnDidReadRSSI:block];
 }
 //discoverIncludedServices的回调，暂时在babybluetooth中无作用
@@ -207,7 +207,7 @@
 }
 //读取RSSI的委托
 - (void)setBlockOnDidReadRSSIAtChannel:(NSString *)channel
-                                block:(void (^)(NSNumber *RSSI,NSError *error))block {
+                                block:(void (^)(CBPeripheral *peripheral, NSNumber *RSSI,NSError *error))block {
     [[self.babySpeaker callbackOnChnnel:channel createWhenNotExist:YES]setBlockOnDidReadRSSI:block];
 }
 //discoverIncludedServices的回调，暂时在babybluetooth中无作用
