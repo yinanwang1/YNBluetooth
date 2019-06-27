@@ -385,15 +385,15 @@
 //私有方法，扫描或连接设备
 - (void)start:(CBPeripheral *)cachedPeripheral {
     BOOL poweredOn = NO;
-    if (@available(iOS 10.0, *)) {
-        if (self.babyCentralManager->centralManager.state == CBManagerStatePoweredOn) {
-            poweredOn = YES;
-        }
-    } else {
-        if (self.babyCentralManager->centralManager.state == CBCentralManagerStatePoweredOn) {
-            poweredOn = YES;
-        }
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0 && __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_13
+    if (self.babyCentralManager->centralManager.state == CBCentralManagerStatePoweredOn) {
+        poweredOn = YES;
     }
+#else
+    if (self.babyCentralManager->centralManager.state == CBManagerStatePoweredOn) {
+        poweredOn = YES;
+    }
+#endif
 
     if (poweredOn) {
         self.CENTRAL_MANAGER_INIT_WAIT_TIMES = 0;

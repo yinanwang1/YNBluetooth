@@ -65,15 +65,15 @@
 }
 
 - (BOOL)canStartAdvertising {
-    if (@available(iOS 10.0, *)) {
-        if (self.peripheralManager.state != CBManagerStatePoweredOn) {
-            return NO;
-        }
-    } else {
-        if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
-            return NO;
-        }
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0 && __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_13
+    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+        return NO;
     }
+#else
+    if (self.peripheralManager.state != CBManagerStatePoweredOn) {
+        return NO;
+    }
+#endif
     if (self.didAddServices != _services.count) {
         return NO;
     }
@@ -81,15 +81,15 @@
 }
 
 - (BOOL)isPoweredOn {
-    if (@available(iOS 10.0, *)) {
-        if (self.peripheralManager.state != CBManagerStatePoweredOn) {
-            return NO;
-        }
-    } else {
-        if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
-            return NO;
-        }
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0 && __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_13
+    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+        return NO;
     }
+#else
+    if (self.peripheralManager.state != CBManagerStatePoweredOn) {
+        return NO;
+    }
+#endif
 
     return YES;
 }
@@ -117,64 +117,63 @@
 #pragma mark - peripheralManager delegate
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
-
-    if (@available(iOS 10.0, *)) {
-        switch (peripheral.state) {
-            case CBManagerStateUnknown:
-                BabyLog(@">>>CBManagerStateUnknown");
-                break;
-
-            case CBManagerStateResetting:
-                BabyLog(@">>>CBManagerStateResetting");
-                break;
-
-            case CBManagerStateUnsupported:
-                BabyLog(@">>>CBManagerStateUnsupported");
-                break;
-
-            case CBManagerStateUnauthorized:
-                BabyLog(@">>>CBManagerStateUnauthorized");
-                break;
-
-            case CBManagerStatePoweredOff:
-                BabyLog(@">>>CBManagerStatePoweredOff");
-                break;
-
-            case CBManagerStatePoweredOn:
-                BabyLog(@">>>CBManagerStatePoweredOn");
-                //发送centralManagerDidUpdateState通知
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"CBPeripheralManagerStatePoweredOn" object:nil];
-                break;
-
-            default:
-                break;
-        }
-    } else {
-        switch (peripheral.state) {
-            case CBCentralManagerStateUnknown:
-                BabyLog(@">>>CBCentralManagerStateUnknown");
-                break;
-            case CBCentralManagerStateResetting:
-                BabyLog(@">>>CBCentralManagerStateResetting");
-                break;
-            case CBCentralManagerStateUnsupported:
-                BabyLog(@">>>CBCentralManagerStateUnsupported");
-                break;
-            case CBCentralManagerStateUnauthorized:
-                BabyLog(@">>>CBCentralManagerStateUnauthorized");
-                break;
-            case CBCentralManagerStatePoweredOff:
-                BabyLog(@">>>CBCentralManagerStatePoweredOff");
-                break;
-            case CBCentralManagerStatePoweredOn:
-                BabyLog(@">>>CBCentralManagerStatePoweredOn");
-                //发送centralManagerDidUpdateState通知
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"CBPeripheralManagerStatePoweredOn" object:nil];
-                break;
-            default:
-                break;
-        }
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0 && __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_13
+    switch (peripheral.state) {
+        case CBCentralManagerStateUnknown:
+            BabyLog(@">>>CBCentralManagerStateUnknown");
+            break;
+        case CBCentralManagerStateResetting:
+            BabyLog(@">>>CBCentralManagerStateResetting");
+            break;
+        case CBCentralManagerStateUnsupported:
+            BabyLog(@">>>CBCentralManagerStateUnsupported");
+            break;
+        case CBCentralManagerStateUnauthorized:
+            BabyLog(@">>>CBCentralManagerStateUnauthorized");
+            break;
+        case CBCentralManagerStatePoweredOff:
+            BabyLog(@">>>CBCentralManagerStatePoweredOff");
+            break;
+        case CBCentralManagerStatePoweredOn:
+            BabyLog(@">>>CBCentralManagerStatePoweredOn");
+            //发送centralManagerDidUpdateState通知
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"CBPeripheralManagerStatePoweredOn" object:nil];
+            break;
+        default:
+            break;
     }
+#else
+    switch (peripheral.state) {
+        case CBManagerStateUnknown:
+            BabyLog(@">>>CBManagerStateUnknown");
+            break;
+
+        case CBManagerStateResetting:
+            BabyLog(@">>>CBManagerStateResetting");
+            break;
+
+        case CBManagerStateUnsupported:
+            BabyLog(@">>>CBManagerStateUnsupported");
+            break;
+
+        case CBManagerStateUnauthorized:
+            BabyLog(@">>>CBManagerStateUnauthorized");
+            break;
+
+        case CBManagerStatePoweredOff:
+            BabyLog(@">>>CBManagerStatePoweredOff");
+            break;
+
+        case CBManagerStatePoweredOn:
+            BabyLog(@">>>CBManagerStatePoweredOn");
+            //发送centralManagerDidUpdateState通知
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"CBPeripheralManagerStatePoweredOn" object:nil];
+            break;
+
+        default:
+            break;
+    }
+#endif
 
     callbackBlock(blockOnPeripheralModelDidUpdateState)(peripheral);
 }
