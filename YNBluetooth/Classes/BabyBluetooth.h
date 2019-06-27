@@ -101,7 +101,7 @@
 characteristic订阅状态改变的block
 |  when characteristic notification state changed 
 */
-- (void)setBlockOnDidUpdateNotificationStateForCharacteristic:(void (^)(CBCharacteristic *characteristic,NSError *error))block;
+- (void)setBlockOnDidUpdateNotificationStateForCharacteristic:(void (^)(CBPeripheral *peripheral, CBCharacteristic *characteristic,NSError *error))block;
 
 /**
 读取RSSI的委托
@@ -224,7 +224,7 @@ characteristic订阅状态改变的block
 |  when characteristic notification state changed 
 */
 - (void)setBlockOnDidUpdateNotificationStateForCharacteristicAtChannel:(NSString *)channel
-                                                                block:(void (^)(CBCharacteristic *characteristic,NSError *error))block;
+                                                                block:(void (^)(CBPeripheral *peripheral, CBCharacteristic *characteristic,NSError *error))block;
 
 /**
 读取RSSI的委托

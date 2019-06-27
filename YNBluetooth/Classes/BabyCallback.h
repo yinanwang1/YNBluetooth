@@ -46,7 +46,7 @@ typedef void (^BBDidWriteValueForCharacteristicBlock)(CBCharacteristic *characte
 
 typedef void (^BBDidWriteValueForDescriptorBlock)(CBDescriptor *descriptor,NSError *error);
 
-typedef void (^BBDidUpdateNotificationStateForCharacteristicBlock)(CBCharacteristic *characteristic,NSError *error);
+typedef void (^BBDidUpdateNotificationStateForCharacteristicBlock)(CBPeripheral *peripheral, CBCharacteristic *characteristic,NSError *error);
 
 typedef void (^BBDidReadRSSIBlock)(CBPeripheral *peripheral, NSNumber *RSSI,NSError *error);
 

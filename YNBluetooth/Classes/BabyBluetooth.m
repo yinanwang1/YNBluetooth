@@ -101,7 +101,7 @@
     [[self.babySpeaker callback]setBlockOnDidWriteValueForDescriptor:block];
 }
 //characteristic订阅状态改变的block
-- (void)setBlockOnDidUpdateNotificationStateForCharacteristic:(void (^)(CBCharacteristic *characteristic,NSError *error))block {
+- (void)setBlockOnDidUpdateNotificationStateForCharacteristic:(void (^)(CBPeripheral *peripheral, CBCharacteristic *characteristic,NSError *error))block {
     [[self.babySpeaker callback]setBlockOnDidUpdateNotificationStateForCharacteristic:block];
 }
 //读取RSSI的委托
@@ -202,7 +202,7 @@
 }
 //characteristic订阅状态改变的block
 - (void)setBlockOnDidUpdateNotificationStateForCharacteristicAtChannel:(NSString *)channel
-                                                                     block:(void (^)(CBCharacteristic *characteristic,NSError *error))block {
+                                                                     block:(void (^)(CBPeripheral *peripheral, CBCharacteristic *characteristic,NSError *error))block {
     [[self.babySpeaker callbackOnChnnel:channel createWhenNotExist:YES]setBlockOnDidUpdateNotificationStateForCharacteristic:block];
 }
 //读取RSSI的委托

@@ -160,7 +160,7 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary *)dict {
-    
+    // TODO
 }
 
 //扫描到Peripherals
@@ -419,7 +419,7 @@
     BabyLog(@">>>didUpdateNotificationStateForCharacteristic");
     BabyLog(@">>>uuid:%@,isNotifying:%@",characteristic.UUID,characteristic.isNotifying?@"isNotifying":@"Notifying");
     if ([currChannel blockOnDidUpdateNotificationStateForCharacteristic]) {
-        [currChannel blockOnDidUpdateNotificationStateForCharacteristic](characteristic,error);
+        [currChannel blockOnDidUpdateNotificationStateForCharacteristic](peripheral, characteristic, error);
     }
 }
 
