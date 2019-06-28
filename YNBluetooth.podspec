@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YNBluetooth'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'YNBluetooth, a library of app. Common classes.'
 
 # This description is used to generate tags and improve search results.
