@@ -160,7 +160,8 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary *)dict {
-    // TODO
+    // 暂时不做处理。
+    // 主要用来保存central或peripheral，当app被relaunch时进行恢复。
 }
 
 //扫描到Peripherals
@@ -184,10 +185,14 @@
     
     //处理连接设备
     if (needConnectPeripheral) {
-        if ([currChannel filterOnconnectToPeripherals](peripheral.name, advertisementData, RSSI, peripheral.identifier.UUIDString)) {
-            [centralManager connectPeripheral:peripheral options:[currChannel babyOptions].connectPeripheralWithOptions];
-            //开一个定时器监控连接超时的情况
-            connectTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(disconnect:) userInfo:peripheral repeats:NO];
+        if (@available(macOS 10.13, *)) {
+            if ([currChannel filterOnconnectToPeripherals](peripheral.name, advertisementData, RSSI, peripheral.identifier.UUIDString)) {
+                [centralManager connectPeripheral:peripheral options:[currChannel babyOptions].connectPeripheralWithOptions];
+                //开一个定时器监控连接超时的情况
+                connectTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(disconnect:) userInfo:peripheral repeats:NO];
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
